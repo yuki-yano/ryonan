@@ -89,15 +89,14 @@ Template List
 Select Template[*] -> 0
 Input the destination directory name -> test_template2
 Set the value to the variable in the template
-    sample -> sample2
-    dir -> dir2
-    method_name -> method_name2
+    sample -> sample
+    dir -> dir
+    method_name -> method_name
 I, [2015-03-04T02:20:15.923823 #77485]  INFO -- : cp -r ./directory/template2/.template ./directory/template2/test_template2
-I, [2015-03-04T02:20:15.925812 #77485]  INFO -- : mv ./directory/template2/test_template2/__sample__.rb.erb ./directory/template2/test_template2/sample2.rb.erb
-I, [2015-03-04T02:20:15.926232 #77485]  INFO -- : mv ./directory/template2/test_template2/__dir__ ./directory/template2/test_template2/dir2
-I, [2015-03-04T02:20:15.926528 #77485]  INFO -- : mv ./directory/template2/test_template2/dir2/__dir__ ./directory/template2/test_template2/dir2/dir2
-I, [2015-03-04T02:20:15.927149 #77485]  INFO -- : render_erb ./directory/template2/test_template2/sample2.rb.erb to ./directory/template2/test_template2/sample2.rb
-I, [2015-03-04T02:20:15.927306 #77485]  INFO -- : rm ./directory/template2/test_template2/sample2.rb.erb
+I, [2015-03-04T02:20:15.925812 #77485]  INFO -- : mv ./directory/template2/test_template2/__sample__.rb.erb ./directory/template2/test_template2/sample.rb.erb
+I, [2015-03-04T02:20:15.926232 #77485]  INFO -- : mv ./directory/template2/test_template2/__dir__ ./directory/template2/test_template2/dir
+I, [2015-03-04T02:20:15.927149 #77485]  INFO -- : render_erb ./directory/template2/test_template2/sample.rb.erb to ./directory/template2/test_template2/sample.rb
+I, [2015-03-04T02:20:15.927306 #77485]  INFO -- : rm ./directory/template2/test_template2/sample.rb.erb
 
 $ tree directory/templete2/test_templete2/
 directory/templete2/test_templete2/
