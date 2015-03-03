@@ -38,6 +38,12 @@ sample
 dir
 method_name
 
+$ cat template1/.template/__sample__.rb.erb
+class <%= sample %>
+  def method1; end
+  def <%= method_name %>; end
+end
+
 $ ryonan
 Template List
     [0] : './template1'
