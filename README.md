@@ -39,29 +39,29 @@ dir
 method_name
 
 $ ryonan
-Templete List
+Template List
     [0] : './template1'
 
-Select Templete[*] -> 0
-Input the destination directory name -> test_templete
+Select Template[*] -> 0
+Input the destination directory name -> test_template
 Set the value to the variable in the template
     sample -> sample1
     dir -> dir1
     method_name -> method_name1
-I, [2015-03-04T02:16:18.931974 #75803]  INFO -- : cp -r ./template1/.template ./template1/test_templete
-I, [2015-03-04T02:16:18.933247 #75803]  INFO -- : mv ./template1/test_templete/__sample__.rb.erb ./template1/test_templete/sample1.rb.erb
-I, [2015-03-04T02:16:18.933645 #75803]  INFO -- : mv ./template1/test_templete/__dir__ ./template1/test_templete/dir1
-I, [2015-03-04T02:16:18.934294 #75803]  INFO -- : render_erb ./template1/test_templete/sample1.rb.erb to ./template1/test_templete/sample1.rb
-I, [2015-03-04T02:16:18.934489 #75803]  INFO -- : rm ./template1/test_templete/sample1.rb.erb
+I, [2015-03-04T02:16:18.931974 #75803]  INFO -- : cp -r ./template1/.template ./template1/test_template
+I, [2015-03-04T02:16:18.933247 #75803]  INFO -- : mv ./template1/test_template/__sample__.rb.erb ./template1/test_template/sample1.rb.erb
+I, [2015-03-04T02:16:18.933645 #75803]  INFO -- : mv ./template1/test_template/__dir__ ./template1/test_template/dir1
+I, [2015-03-04T02:16:18.934294 #75803]  INFO -- : render_erb ./template1/test_template/sample1.rb.erb to ./template1/test_template/sample1.rb
+I, [2015-03-04T02:16:18.934489 #75803]  INFO -- : rm ./template1/test_template/sample1.rb.erb
 
-$ tree template1/test_templete/
-template1/test_templete/
+$ tree template1/test_template/
+template1/test_template/
 ├── dir1
 │   └── sample2.rb
 ├── dir2
 └── sample1.rb
 
-$ cat template1/test_templete/sample1.rb
+$ cat template1/test_template/sample1.rb
 class sample1
   def method1; end
   def method_name1; end
@@ -73,29 +73,29 @@ end
 ```
 $ mkdir directory
 
-$ cp -r template1 directory/templete2
+$ cp -r template1 directory/template2
 
 $ ryonan
-Templete List
-    [0] : './directory/templete2'
+Template List
+    [0] : './directory/template2'
     [1] : './template1'
 
-Select Templete[*] -> 0
-Input the destination directory name -> test_templete2
+Select Template[*] -> 0
+Input the destination directory name -> test_template2
 Set the value to the variable in the template
     sample -> sample2
     dir -> dir2
     method_name -> method_name2
-I, [2015-03-04T02:20:15.923823 #77485]  INFO -- : cp -r ./directory/templete2/.template ./directory/templete2/test_templete2
-I, [2015-03-04T02:20:15.925812 #77485]  INFO -- : mv ./directory/templete2/test_templete2/__sample__.rb.erb ./directory/templete2/test_templete2/sample2.rb.erb
-I, [2015-03-04T02:20:15.926232 #77485]  INFO -- : mv ./directory/templete2/test_templete2/__dir__ ./directory/templete2/test_templete2/dir2
-I, [2015-03-04T02:20:15.926528 #77485]  INFO -- : mv ./directory/templete2/test_templete2/dir2/__dir__ ./directory/templete2/test_templete2/dir2/dir2
-I, [2015-03-04T02:20:15.927149 #77485]  INFO -- : render_erb ./directory/templete2/test_templete2/sample2.rb.erb to ./directory/templete2/test_templete2/sample2.rb
-I, [2015-03-04T02:20:15.927306 #77485]  INFO -- : rm ./directory/templete2/test_templete2/sample2.rb.erb
+I, [2015-03-04T02:20:15.923823 #77485]  INFO -- : cp -r ./directory/template2/.template ./directory/template2/test_template2
+I, [2015-03-04T02:20:15.925812 #77485]  INFO -- : mv ./directory/template2/test_template2/__sample__.rb.erb ./directory/template2/test_template2/sample2.rb.erb
+I, [2015-03-04T02:20:15.926232 #77485]  INFO -- : mv ./directory/template2/test_template2/__dir__ ./directory/template2/test_template2/dir2
+I, [2015-03-04T02:20:15.926528 #77485]  INFO -- : mv ./directory/template2/test_template2/dir2/__dir__ ./directory/template2/test_template2/dir2/dir2
+I, [2015-03-04T02:20:15.927149 #77485]  INFO -- : render_erb ./directory/template2/test_template2/sample2.rb.erb to ./directory/template2/test_template2/sample2.rb
+I, [2015-03-04T02:20:15.927306 #77485]  INFO -- : rm ./directory/template2/test_template2/sample2.rb.erb
 
-$ tree directory/templete2/
-directory/templete2/
-└── test_templete2
+$ tree directory/template2/
+directory/template2/
+└── test_template2
     ├── dir2
     │   └── dir2
     │       └── sample2.rb

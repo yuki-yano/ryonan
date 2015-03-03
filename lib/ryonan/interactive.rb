@@ -4,7 +4,7 @@ module Ryonan
   module Interactive
     class << self
       def print_template_list(filer)
-        puts 'Templete List'
+        puts 'Template List'
         filer.templatable_dirs.map.with_index do |dir, index|
           puts "    [#{index}] : '#{dir}'"
         end
@@ -12,7 +12,7 @@ module Ryonan
       end
 
       def select_template(filer)
-        select = Readline.readline('Select Templete[*] -> ')
+        select = Readline.readline('Select Template[*] -> ')
         if select.match(/\d+/) && !filer.templatable_dirs[select.to_i].nil?
           filer.templatable_dirs[select.to_i]
         else
