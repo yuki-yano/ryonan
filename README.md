@@ -24,7 +24,12 @@ Or install it yourself as:
 
 Create a directory named `.template` and file named `.template/.config`.
 
-`.template` is replicated and `.config` is used to set variables.
+`.template` is replicated and `.config` is used to set variables in interactive command.
+
+- `variable_name = 'value'`
+    - Directory `__variable_name__` > `value`
+    - File `__variable_name__.rb` > `value.rb`
+    - Erb File `__variable_name__.rb.erb` > `value.rb` and render erb
 
 ```
 $ tree -a
