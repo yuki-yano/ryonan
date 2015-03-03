@@ -96,8 +96,8 @@ I, [2015-03-04T02:20:15.927306 #77485]  INFO -- : rm ./directory/template2/test_
 $ tree directory/template2/
 directory/template2/
 └── test_template2
+    ├── dir
+    │   └── sample2.rb
     ├── dir2
-    │   └── dir2
-    │       └── sample2.rb
-    └── sample2.rb
+    └── sample.rb
 ```
