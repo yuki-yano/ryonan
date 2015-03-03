@@ -93,11 +93,10 @@ I, [2015-03-04T02:20:15.926528 #77485]  INFO -- : mv ./directory/template2/test_
 I, [2015-03-04T02:20:15.927149 #77485]  INFO -- : render_erb ./directory/template2/test_template2/sample2.rb.erb to ./directory/template2/test_template2/sample2.rb
 I, [2015-03-04T02:20:15.927306 #77485]  INFO -- : rm ./directory/template2/test_template2/sample2.rb.erb
 
-$ tree directory/template2/
-directory/template2/
-└── test_template2
-    ├── dir
-    │   └── sample2.rb
-    ├── dir2
-    └── sample.rb
+$ tree directory/templete2/test_templete2/
+directory/templete2/test_templete2/
+├── dir
+│   └── sample2.rb
+├── dir2
+└── sample.rb
 ```
