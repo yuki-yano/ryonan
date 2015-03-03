@@ -22,6 +22,10 @@ Or install it yourself as:
 
 ## Usage
 
+Create a directory named `.template` and file named `.template/.config`.
+
+`.template` is replicated and `.config` is used to set variables.
+
 ```
 $ tree -a
 .
