@@ -50,7 +50,7 @@ module Ryonan
       def read_config(line)
         if line.match(/.+=/)
           (variable_name, default) = line.split('=')
-          input = Readline.readline("    #{variable_name} (Default:#{default}) -> ")
+          input = Readline.readline("    #{variable_name} (Default: #{default}) -> ")
           variable_value = input.empty? ? default : input
         else
           variable_name = line
