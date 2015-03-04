@@ -1,5 +1,6 @@
 require 'erb'
 require 'ostruct'
+require 'active_support/core_ext/string/inflections'
 
 module Ryonan
   class Renderer < OpenStruct
