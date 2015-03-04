@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'optparse'
-require 'logger'
 require 'ryonan'
 
 root_filer = Ryonan::Filer.new('.')

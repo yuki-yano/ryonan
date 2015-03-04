@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'logger'
 
 module Ryonan
   class Filer
