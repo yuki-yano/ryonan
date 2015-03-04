@@ -38,12 +38,7 @@ module Ryonan
 
     def render_erbs(variable_hash)
       erbs.each do |erb|
-        result = Renderer.new(variable_hash).render(open(erb).read)
-        Filer.logger.info("render_erb #{erb} to #{erb.gsub(/\.erb$/, '')}")
-        open(erb.gsub(/\.erb$/, ''), 'w') do |file|
-          file.puts(result)
-        end
-        Filer.rm(erb)
+        Filer.render_erb(erb, variable_hash)
       end
     end
 
@@ -67,6 +62,13 @@ module Ryonan
       def rm(file)
         logger.info("rm #{file}")
         FileUtils.rm(file)
+      end
+      
+      def render_erb(erb, hash)
+        result = Renderer.new(hash).render(open(erb).read)
+        Filer.logger.info("render_erb #{erb} to #{erb.gsub(/\.erb$/, '')}")
+        open(erb.gsub(/\.erb$/, ''), 'w') { |file| file.puts(result) }
+        Filer.rm(erb)
       end
     end
   end
