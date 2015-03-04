@@ -34,11 +34,7 @@ module Ryonan
       def read_configs(template_root)
         puts 'Set the value to the variable in the template'
         variables = File.open(config_file_path(template_root)).readlines.map(&:chomp)
-        variables.reduce({}) do |acc, line|
-          (variable_name, variable_value) = read_config(line)
-          acc[variable_name.to_sym] = variable_value
-          acc
-        end
+        variables.map { |line| read_config(line) }.to_h
       end
       
       private 
