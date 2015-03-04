@@ -21,7 +21,7 @@ module Ryonan
         end
       end
 
-      def set_template_name
+      def input_template_name
         name = Readline.readline('Input the destination directory name -> ')
         if name == Config.template_dir_name
           puts "#{Config.template_dir_name} will overlap with the template directory name"
@@ -31,11 +31,18 @@ module Ryonan
         end
       end
 
-      def set_configs(template_root)
+      def input_configs(template_root)
         puts 'Set the value to the variable in the template'
         variables = File.open("#{template_root}/#{Config.template_dir_name}/#{Config.config_file_name}").readlines.map(&:chomp)
-        variables.reduce({}) do |acc, variable_name|
-          variable_value = Readline.readline("    #{variable_name} -> ")
+        variables.reduce({}) do |acc, line|
+          if line.match(/.+=/)
+            (variable_name, default) = line.split('=')
+            input = Readline.readline("    #{variable_name} (Default:#{default}) -> ")
+            variable_value = input.empty? ? default : input
+          else
+            variable_name = line
+            variable_value = Readline.readline("    #{variable_name} -> ")
+          end
           acc[variable_name.to_sym] = variable_value
           acc
         end

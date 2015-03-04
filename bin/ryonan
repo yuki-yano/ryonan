@@ -5,7 +5,7 @@ require 'ryonan'
 root_filer = Ryonan::Filer.new('.')
 Ryonan::Interactive.print_template_list(root_filer)
 template_root = Ryonan::Interactive.select_template(root_filer)
-name          = Ryonan::Interactive.set_template_name
-variable_hash = Ryonan::Interactive.set_configs(template_root)
+name          = Ryonan::Interactive.input_template_name
+variable_hash = Ryonan::Interactive.input_configs(template_root)
 
 Ryonan::Template.create(template_root, name, variable_hash)
