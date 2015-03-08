@@ -1,8 +1,12 @@
 module Ryonan
   class Template
     def self.create(template_root, name, variable_hash)
-      Filer.cp_r("#{template_root}/#{Config.template_dir_name}", "#{template_root}/#{name}")
-      Filer.rm("#{template_root}/#{name}/#{Config.config_file_name}")
+      if name.empty?
+        Filer.cp_r(Dir.glob("#{template_root}/#{Config.template_dir_name}/*"), "#{template_root}/")
+      else
+        Filer.cp_r("#{template_root}/#{Config.template_dir_name}", "#{template_root}/#{name}")
+        Filer.rm("#{template_root}/#{name}/#{Config.config_file_name}")
+      end
       filer = Filer.new("#{template_root}/#{name}")
 
       variable_hash.each do |key, value|
