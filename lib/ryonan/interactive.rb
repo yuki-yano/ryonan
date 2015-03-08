@@ -1,4 +1,5 @@
 require 'readline'
+require 'active_support/core_ext/string/strip'
 
 module Ryonan
   module Interactive
@@ -22,7 +23,12 @@ module Ryonan
       end
 
       def read_template_name
-        name = Readline.readline('Input the destination directory name -> ')
+        name = Readline.readline(<<-'EOS'.strip_heredoc.chomp + ' ')
+            Input the destination directory name
+            ( Deprecated: If the input is blank, to expand the template directory on one level up )
+            ->
+        EOS
+        
         if name == Config.template_dir_name
           puts "#{Config.template_dir_name} will overlap with the template directory name"
           exit 1
