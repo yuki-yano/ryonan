@@ -4,7 +4,11 @@ module Ryonan
       Filer.cp_r("#{template_root}/#{Config.template_dir_name}", "#{template_root}/#{name}")
       Filer.rm("#{template_root}/#{name}/#{Config.config_file_name}")
       filer = Filer.new("#{template_root}/#{name}")
-      filer.recursive_rename_files(variable_hash)
+
+      variable_hash.each do |key, value|
+        filer.recursive_rename_files(key, value)
+      end
+      
       filer.render_erbs(variable_hash)
     end
   end

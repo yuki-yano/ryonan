@@ -25,14 +25,12 @@ module Ryonan
       files.select { |file_path| file_path.match(/\.erb$/) }
     end
 
-    def recursive_rename_files(variable_hash)
-      variable_hash.each do |key, value|
-        from = "__#{key}__"
-        while files.any? { |dir| dir.match(/#{from}/) }
-          src  = files.select { |dir| dir.match(/#{from}/) }.first
-          dest = src.gsub(/#{from}/, value)
-          Filer.mv(src, dest)
-        end
+    def recursive_rename_files(from, to)
+      from_value = "__#{from}__"
+      while files.any? { |dir| dir.match(/#{from_value}/) }
+        src  = files.select { |dir| dir.match(/#{from_value}/) }.first
+        dest = src.gsub(/#{from_value}/, to)
+        Filer.mv(src, dest)
       end
     end
 
