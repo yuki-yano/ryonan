@@ -12,7 +12,7 @@ module Ryonan
       variable_hash.each do |key, value|
         filer.recursive_rename_files(key, value)
       end
-      
+
       filer.render_erbs(variable_hash)
     end
   end
